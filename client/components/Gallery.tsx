@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Slide from './Slide'
+import DisplaySlogan from './DisplaySlogan'
 
 const images = [
-  '/images/mainSlides/cat1.jpg',
-  '/images/mainSlides/brown-dog.jpg',
-  '/images/mainSlides/cat.jpg',
+  // '/images/mainSlides/cat4.jpg',
+  '/images/mainSlides/dog2.jpg',
+  '/images/mainSlides/dog.jpg',
 ]
 
 const Gallery = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const timeoutRef = useRef(null)
 
   const prevSlide = () => {
     setCurrentSlide((currentSlide - 1 + images.length) % images.length)
@@ -17,20 +19,38 @@ const Gallery = () => {
     setCurrentSlide((currentSlide + 1) % images.length)
   }
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(nextSlide, 3000)
+  function resetTimeout() {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+  }
 
-  //   // Clear the interval when the component unmounts
-  //   return () => {
-  //     clearInterval(intervalId)
-  //   }
-  // }, [currentSlide])
+  useEffect(() => {
+    resetTimeout()
+    const intervalId = setInterval(nextSlide, 5000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
+  }, [currentSlide])
 
   return (
-    <div className="image-gallery">
-      <button onClick={prevSlide}>Previous</button>
-      <Slide image={images[currentSlide]} />
-      <button onClick={nextSlide}>Next</button>
+    <div className="main-box">
+      <div className="image-gallery">
+        <div
+          className="image-gallery-container"
+          style={{ transform: `translateX(${-currentSlide * 100}%)` }}
+        >
+          {images.map((image, index) => (
+            <Slide
+              key={index}
+              image={image}
+              className={index === currentSlide ? 'active' : ''}
+            />
+          ))}
+        </div>
+      </div>
+      <DisplaySlogan />
     </div>
   )
 }

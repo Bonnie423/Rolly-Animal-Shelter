@@ -1,14 +1,15 @@
-import React from 'react'
-
-interface Props{
+interface Props {
   image: string
+  className: string
 }
 
-const Slide = ({image}:Props) => {
+const Slide = ({ image,className }: Props) => {
   return (
-    <div className="slide">
-      <img src={image} alt="a pet" className='slides-img' />
-    </div>
+   
+      <div className={`slide ${className}`}>
+        <img src={image} alt="a pet" className="slides-img active" />
+      </div>
+    
   )
 }
 
