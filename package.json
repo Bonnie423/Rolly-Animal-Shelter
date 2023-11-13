@@ -35,8 +35,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "knex": "^3.0.1",
-    "sqlite3": "^5.1.6",
     "react-ionicons": "^4.2.1",
+    "sqlite3": "^5.1.6",
     "superagent": "7.1.1"
   },
   "devDependencies": {
