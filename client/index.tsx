@@ -1,10 +1,31 @@
 import { createRoot } from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import React from 'react'
+import GoogleMap from './components/GoogleMap.tsx'
+
 import routes from './routes.tsx'
 
 const router = createBrowserRouter(routes)
-document.addEventListener('DOMContentLoaded', () => {
-  createRoot(document.getElementById('app') as HTMLElement).render(
+const root = createRoot(document.getElementById('app') as HTMLElement)
+// creating a new QueryClient instance
+const queryClient = new QueryClient()
+
+root.render(
+  <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    <ReactQueryDevtools />
+  </QueryClientProvider>
+)
+
+export function renderToDom(container: HTMLElement) {
+  const root = createRoot(container)
+
+  root.render(
+    <React.StrictMode>
+      <GoogleMap />
+    </React.StrictMode>
   )
-})
+}

@@ -19,13 +19,13 @@ const Nav = () => {
         <Link to="/">
           <button className="nav-button">Home</button>
         </Link>
-        <Link to="/">
+        <Link to="/adoptions">
           <button className="nav-button">Adoption</button>
         </Link>
-        <Link to="/">
+        <Link to="/volunteer">
           <button className="nav-button">Volunteer</button>
         </Link>
-        <Link to="/">
+        <Link to="/contact">
           <button className="nav-button">Contact Us</button>
         </Link>
       </div>

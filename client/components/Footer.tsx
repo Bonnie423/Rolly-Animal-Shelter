@@ -5,7 +5,7 @@ const Footer = () => {
   const handleBackToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Optional: adds smooth scrolling
+      behavior: 'smooth',
     })
   }
 

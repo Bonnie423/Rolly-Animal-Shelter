@@ -5,9 +5,13 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  font-size: clamp(12px, 1.5vw, 24px);
+  font-size: clamp(12px, 1.2vw, 24px);
   /* font-size: 1.6vw; */
   height: 100vh;
+  color: rgb(73, 70, 70);
+}
+h2{
+  font-size: clamp(12px, 28px, 32px);
 }
 
 .header {
@@ -216,7 +220,93 @@ article {
 .dog-gallery {
   margin-left: 12vw;
 }
+.contact-main {
+  background-color: rgba(232, 229, 220, 255);
+}
+.contact-main-box {
+  width: 80%;
+  margin: 0 auto;
+}
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 
+  padding-top: 5vw;
+  border-top: dotted rgb(225, 83, 60);
+}
+
+.google-map {
+  width: 300px;
+  height: 250px;
+}
+.contact-heading {
+  display: flex;
+  /* margin-left: 15vw; */
+}
+.contact-us {
+  display: flex;
+  align-items: center;
+}
+.contact-info {
+  color: rgb(73, 70, 70);
+  /* padding-left: 3vw; */
+  width: 70%;
+}
+
+input,
+textarea {
+  width: 90%;
+  background-color: rgba(232, 229, 220, 255);
+  margin-bottom: 5px;
+  border: solid 1px rgb(73, 70, 70);
+}
+input {
+  height: 30px;
+}
+
+.submit-btn {
+  background-color: rgb(225, 83, 60);
+  color: white;
+  padding: 7px 14px;
+  border: none;
+  margin-left: 50%;
+}
+.volunteer-main-content{
+padding-top: 5vh;
+}
+.vlunteer-heading{
+  padding-bottom: 10px;
+}
+.volunteer-main{
+  display: flex;
+  /* margin: 5vh auto; */
+  border-bottom: dotted rgb(225, 83, 60);
+  border-top: dotted rgb(225, 83, 60);
+  padding: 5vh 0;
+}
+.volunteer-intro{
+  padding-right: 5vw;
+}
+
+.volunteer-img{
+  width: 35%;
+  border: solid 10px white;
+}
+.sign-up-box{
+  display: flex;
+  padding: 5vh 0;
+}
+.sign-up-p{
+  width: 40%;
+  padding-right: 3vw;
+}
+.v-input{
+  background-color: #fff;
+  width: 100%;
+}
+.v-h3{
+  padding-bottom: 4vh;
+}
 footer {
   background-color: rgb(225, 83, 60);
   color: white;
@@ -239,6 +329,7 @@ footer {
   /* Adjust styles for smaller screens */
   body {
     text-align: center;
+    width: 100%;
   }
   .header {
     grid-template-columns: 1fr;
@@ -278,13 +369,13 @@ footer {
     border-bottom: dotted rgb(225, 83, 60);
     border-right: none;
   }
-  .week-pet-box{
-   margin: 5px auto
+  .week-pet-box {
+    margin: 5px auto;
   }
-  .cat-gallery{
+  .cat-gallery {
     margin: 0 auto;
   }
-  .dog-gallery{
+  .dog-gallery {
     margin: 0 auto;
   }
 }
