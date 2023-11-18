@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 // type PropType = {
 //   slides: number[]
@@ -16,6 +17,7 @@ const CatGallery = () => {
   const [images, setImages] = useState(imagesData)
   const [index, setIndex] = useState(0)
 
+  const category = 'Cat'
   useEffect(() => {
     const lastIndex = images.length - 1
     if (index < 0) {
@@ -59,7 +61,9 @@ const CatGallery = () => {
           )
         })}
       </div>
+      <Link  to={`/pets/${category}`} style={{textDecoration: 'none'}}>
       <h2  className='adoptable-pet'>✧ Adoptable cats</h2>
+      </Link>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import * as db from '../db/db.js'
 import {
   VolunteerDataType,
   VolunteerData,
+  volunteerFormType
 } from '../../client/Model/volunteer.js'
 
 const router = express.Router()
@@ -20,9 +21,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { name, email, phoneNumber, message } = req.body
+    const { name, email, phoneNumber, message } = req.body 
 
-    const newSubmission = { name, email, phone_number: phoneNumber, message }
+    const newSubmission: volunteerFormType = { name, email, phone_number: phoneNumber, message }
 
     const newVolunteer = await db.addVolunteers(newSubmission)
   

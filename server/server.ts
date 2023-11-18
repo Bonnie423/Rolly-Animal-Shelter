@@ -5,6 +5,7 @@ import adoptions from './routes/adoptions'
 
 import volunteers from './routes/volunteers'
 import contact from './routes/contact'
+import pets from './routes/pets'
 
 
 const server = express()
@@ -16,6 +17,7 @@ server.use(cors('*' as CorsOptions))
 server.use('/api/v1/adoptions', adoptions)
 server.use('/api/v1/volunteers', volunteers)
 server.use('/api/v1/contact', contact)
+server.use('/api/v1/pets', pets)
 
 
 if (process.env.NODE_ENV === 'production') {

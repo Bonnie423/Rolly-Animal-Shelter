@@ -1,11 +1,10 @@
 import React from 'react'
 import GoogleMap from './GoogleMap'
+import { contactData, contactDataType } from '../Model/contactData'
 
-interface Props{
-  name:string
-}
 
-const DisplayContactSubmit = ({name}:Props) => {
+
+const DisplayContactSubmit = ({name,phoneNumber,email,message}:contactDataType) => {
   return (
     <div>
      <div className="contact-main">
@@ -28,7 +27,14 @@ const DisplayContactSubmit = ({name}:Props) => {
           <div>
            <h3>Hi, {name}!</h3>
            <br></br>
-           <p>We have received your message, we will get in toutch with you soon!</p>
+           <p>We have received your message as follow:</p>
+                <br></br>
+                <p>Name: {name}</p>
+                <p>Phone-Number: {phoneNumber}</p>
+                <p>Email: {email}</p>
+                <p>Message: {message}</p>
+                <br></br>
+           <p>We will get in toutch with you soon!</p>
           </div>
           <div className="google-map">
             <GoogleMap />

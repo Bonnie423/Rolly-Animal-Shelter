@@ -5,14 +5,16 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  font-size: clamp(12px, 1.2vw, 24px);
+  font-size: clamp(14px, 16px, 24px);
   /* font-size: 1.6vw; */
   height: 100vh;
   color: rgb(73, 70, 70);
 }
-h2{
+h2 {
   font-size: clamp(12px, 28px, 32px);
 }
+
+/* Home page */
 
 .header {
   background-color: rgba(232, 229, 220, 255);
@@ -144,9 +146,11 @@ h4 {
   padding-bottom: 5px;
 }
 .week-pet-img {
-  width: 20%;
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1/1;
   border-radius: 50%;
-  margin: 3vh 5vh;
+  margin: 0 5vh;
 }
 
 .volunteer-box {
@@ -156,7 +160,7 @@ h4 {
 .week-pet-box {
   display: flex;
   width: 70%;
-  /* padding: 0 10vw; */
+  padding-bottom: 10px;
 }
 
 .cat-week {
@@ -220,6 +224,9 @@ article {
 .dog-gallery {
   margin-left: 12vw;
 }
+
+/* Contact page */
+
 .contact-main {
   background-color: rgba(232, 229, 220, 255);
 }
@@ -241,7 +248,6 @@ article {
 }
 .contact-heading {
   display: flex;
-  /* margin-left: 15vw; */
 }
 .contact-us {
   display: flex;
@@ -249,7 +255,7 @@ article {
 }
 .contact-info {
   color: rgb(73, 70, 70);
-  /* padding-left: 3vw; */
+
   width: 70%;
 }
 
@@ -271,42 +277,137 @@ input {
   border: none;
   margin-left: 50%;
 }
-.volunteer-main-content{
-padding-top: 5vh;
+
+/* Volunteer page */
+
+.volunteer-main-content {
+  padding-top: 5vh;
 }
-.vlunteer-heading{
+.heading {
   padding-bottom: 10px;
 }
-.volunteer-main{
+.volunteer-main {
   display: flex;
-  /* margin: 5vh auto; */
+
   border-bottom: dotted rgb(225, 83, 60);
   border-top: dotted rgb(225, 83, 60);
   padding: 5vh 0;
 }
-.volunteer-intro{
+.volunteer-intro {
   padding-right: 5vw;
 }
 
-.volunteer-img{
+.volunteer-img {
   width: 35%;
   border: solid 10px white;
 }
-.sign-up-box{
+.sign-up-box {
   display: flex;
   padding: 5vh 0;
 }
-.sign-up-p{
+.sign-up-p {
   width: 40%;
   padding-right: 3vw;
 }
-.v-input{
+.v-input {
   background-color: #fff;
   width: 100%;
 }
-.v-h3{
+.v-h3 {
   padding-bottom: 4vh;
 }
+/* Adoption page */
+
+.adoption-main {
+  background-color: rgba(232, 229, 220, 255);
+}
+.adoption-box {
+  width: 80%;
+  margin: 0 auto;
+
+  padding-top: 3vh;
+}
+.pet-filter-form {
+  padding-top: 20px;
+  text-align:center;
+}
+.pet-select {
+  font-size: 14px;
+  padding: 8px;
+  margin-left: 10px;
+}
+
+.search-img-box {
+  border-top: dotted rgb(225, 83, 60);
+}
+.adoption-img-box {
+  border-bottom: dotted rgb(225, 83, 60);
+
+  padding: 5vh 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border: solid 10px white;
+}
+.adoption-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  object-position: center;
+  transition: 200ms ease-in-out;
+}
+.image-info {
+  position: absolute;
+  inset: 0;
+  padding: 20%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  transition: 200ms ease-in-out;
+  line-height: 1.5;
+}
+
+.fade-in {
+  opacity: 1;
+}
+.fade-out {
+  opacity: 0;
+}
+
+/* singlePetInfo */
+
+.pet-into-container {
+  background-color: rgba(232, 229, 220, 255);
+}
+.pet-intro-text {
+  color: rgb(225, 83, 60);
+  font-weight: bold;
+  font-size: clamp(14px, 20px, 24px);
+}
+.pet-intro-box {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5vw;
+}
+.pet-intro-img {
+  width: 25vw;
+  margin: 0 auto;
+  border: solid 10px white;
+}
+.pet-details {
+  padding-left: 5vw;
+}
+
+.adoption-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 3vw 0;
+}
+/* footer */
 footer {
   background-color: rgb(225, 83, 60);
   color: white;

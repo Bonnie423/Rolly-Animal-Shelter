@@ -5,9 +5,10 @@ import { VolunteerDataType, VolunteerData } from '../Model/volunteer'
 
 interface Props {
   name: string
+
 }
 
-const DisplayVolunteerInfo = ({ name }: Props) => {
+const DisplayVolunteerInfo = ({ name , phoneNumber, email, message}: VolunteerData) => {
   return (
     <div>
       <div className="contact-main volunteer-main-content">
@@ -51,6 +52,13 @@ const DisplayVolunteerInfo = ({ name }: Props) => {
               </div>
               <div>
                 <h3>Hi, {name}!</h3>
+                <br></br>
+                <p>We have received your message as follow:</p>
+                <br></br>
+                <p>Name: {name}</p>
+                <p>Phone-Number: {phoneNumber}</p>
+                <p>Email: {email}</p>
+                <p>Message: {message}</p>
                 <br></br>
                 <p>Thank you so much for your kind offer.  We will get in touch with you soon!</p>
                 

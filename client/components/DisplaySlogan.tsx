@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const DisplaySlogan = () => {
   return (
@@ -13,7 +14,7 @@ const DisplaySlogan = () => {
           </p>
           <p className="adoption-word">
             <span >
-            <span className='red-text'>ADOPT </span> ME! <span className='red-text'>✦ ✧</span>{' '}
+            <Link to='/adoptions' style={{textDecoration: 'none'}}><span className='red-text'>ADOPT </span></Link> ME! <span className='red-text'>✦ ✧</span>{' '}
               {/* <FontAwesomeIcon icon={faArrowRight} className="arrow" /> */}
             </span>
           </p>

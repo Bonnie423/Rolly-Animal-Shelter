@@ -12,3 +12,5 @@ export async function addContact(newContact: contactDataType) {
  
   return response.body
 }
+
+

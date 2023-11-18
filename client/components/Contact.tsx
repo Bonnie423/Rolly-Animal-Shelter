@@ -31,7 +31,7 @@ const Contact = () => {
   function handleChange(
     event:
       | ChangeEvent<HTMLInputElement>
-      | ChangeEventHandler<HTMLTextAreaElement>
+      | ChangeEvent<HTMLTextAreaElement>
   ) {
     const { name, value } = event.target
     const newForm = { ...form, [name]: value }
@@ -48,7 +48,7 @@ const Contact = () => {
   return (
     <div>
       {submitted ? (
-        <DisplayContactSubmit name={form.name}/>
+        <DisplayContactSubmit name={form.name} phoneNumber={form.phoneNumber} email={form.email} message={form.message}  />
       ) : (
         <div className="contact-main">
           <div className="contact-main-box">

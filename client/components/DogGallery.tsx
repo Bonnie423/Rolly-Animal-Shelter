@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import DogSlides from './DogSlides'
-
-// type PropType = {
-//   slides: number[]
-//   options?: EmblaOptionsType
-// }
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const imagesData = [
   '/images/dogs/dog2.jpg',
@@ -14,6 +9,8 @@ const imagesData = [
 ]
 
 const DogGallery = () => {
+
+  const category = 'Dog'
   const [images, setImages] = useState(imagesData)
   const [index, setIndex] = useState(0)
 
@@ -36,27 +33,33 @@ const DogGallery = () => {
 
   return (
     <div>
-    <div className="pet-gallery dog-gallery">
-      {images.map((image, petIndex) => {
-       let position = 'nextSlide'
-        if (petIndex === index) {
-          position = 'activeSlide'
-        }
-        if (
-          petIndex === index - 1 ||
-          (index === 0 && petIndex === images.length - 1)
-        ) {
-          position = 'lastSlide'
-        }
+      <div className="pet-gallery dog-gallery">
+        {images.map((image, petIndex) => {
+          let position = 'nextSlide'
+          if (petIndex === index) {
+            position = 'activeSlide'
+          }
+          if (
+            petIndex === index - 1 ||
+            (index === 0 && petIndex === images.length - 1)
+          ) {
+            position = 'lastSlide'
+          }
 
-        return (
-          <article key={petIndex} className={`pet-slide ${position}`}>
-            <img src={image} alt="a pet slide" className="pet-slide-img"></img>
-          </article>
-        )
-      })}
-    </div>
-        <h2 className='adoptable-pet'>✧ Adoptable dogs</h2>
+          return (
+            <article key={petIndex} className={`pet-slide ${position}`}>
+              <img
+                src={image}
+                alt="a pet slide"
+                className="pet-slide-img"
+              ></img>
+            </article>
+          )
+        })}
+      </div>
+      <Link  to={`/pets/${category}`} style={{textDecoration: 'none'}} >
+      <h2 className="adoptable-pet">✧ Adoptable dogs</h2>
+      </Link>
     </div>
   )
 }

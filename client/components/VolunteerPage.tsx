@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ChangeEventHandler, FormEvent, useState } from 'react'
+import  { ChangeEvent, ChangeEventHandler, FormEvent, useState } from 'react'
 import { VolunteerDataType, VolunteerData } from '../Model/volunteer'
 import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
 import { addVolunteers } from '../apiClient/addVolunteerAPI'
@@ -22,7 +22,7 @@ const VolunteerPage = () => {
       queryClient.invalidateQueries({ queryKey: ['volunteers'] })
     },
   })
-  function handleChange(event: ChangeEvent<HTMLInputElement> | ChangeEventHandler<HTMLTextAreaElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) {
     const { name, value } = event.target
     const newForm = { ...form, [name]: value }
     setForm(newForm)
@@ -38,12 +38,12 @@ const VolunteerPage = () => {
   return (
     <div>
       {submitted ? (
-        <DisplayVolunteerInfo name={form.name} />
+        <DisplayVolunteerInfo name={form.name} phoneNumber = {form.phoneNumber} email={form.email} message={form.message} />
       ) : (
         <div className="contact-main volunteer-main-content">
           <div className="contact-main-box">
             <h2>
-              <span className="red-text vlunteer-heading">✧ ✦Volunteer</span>
+              <span className="red-text heading">✧ ✦Volunteer</span>
             </h2>
             <div className="volunteer-main">
               <p className="volunteer-intro">

@@ -1,19 +1,26 @@
-import React, { useState } from 'react'
-import { DogData } from '../Model/dogData'
-import { useQueries, useQuery } from '@tanstack/react-query'
-import { getPetImages } from '../apiClient/adoptionsAPI'
+import { useQuery } from '@tanstack/react-query'
+import { useState } from 'react'
+import { getAllPets } from '../apiClient/petListAPI'
+import ShowPetInfo from './ShowPetInfo'
+
+import { petFormData } from '../Model/petData'
 
 const Adoptions = () => {
-  // const [pets, setPets]= useState<DogData | null>(null)
-
+  const [selectCategory, setSelectCategory] = useState('')
   const {
     data: petsData,
     isError,
     isLoading,
   } = useQuery({
     queryKey: ['pets'],
-    queryFn: getPetImages,
+    queryFn: getAllPets,
   })
+
+  const filteredPets = petsData?.filter((pet) =>
+    selectCategory === 'All' || selectCategory === ''
+      ? true
+      : pet.category === selectCategory
+  )
 
   if (isLoading) {
     return <p>Loading pet images...</p>
@@ -22,17 +29,52 @@ const Adoptions = () => {
   if (isError) {
     return <p>Error loading pet data</p>
   }
+
   return (
     <div>
-      <h2>
-        <span className="red-text">✧ ✦Adoptions</span>
-      </h2>
-      <div className='adoption-box'>
+      <div className="adoption-main">
+        <div className="adoption-box">
+          <h2>
+            <span className="red-text heading">✧ ✦Adoptions</span>
+          </h2>
+          <div className="search-img-box">
+            <form className="pet-filter-form">
+              <label htmlFor="pet" className="pet-filter-label">
+                Pets Filter
+              </label>
+              <select
+                name="pet"
+                id=""
+                className="pet-select"
+                onChange={(e) => {
+                  setSelectCategory(e.target.value)
+                }}
+                value={selectCategory}
+              >
+                <option value="">--Please choose an option--</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Other">Other</option>
+                <option value="All">All</option>
+              </select>
+            </form>
 
-      {petsData?.photos.map((pet) => {
-        
-        return <img src={pet.src.medium} alt={pet.alt} key={pet.id} className='adoption-img'></img>
-      })}
+            <div className="adoption-img-box">
+              {filteredPets?.map((pet) => (
+                <ShowPetInfo
+                  key={pet.name}
+                  image={pet.image}
+                  name={pet.name}
+                  breed={pet.breed}
+                  category={pet.category}
+                  age={pet.age}
+                  gender={pet.gender}
+                  id={pet.id}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

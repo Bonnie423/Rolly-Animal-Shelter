@@ -27,7 +27,7 @@ const Gallery = () => {
 
   useEffect(() => {
     resetTimeout()
-    const intervalId = setInterval(nextSlide, 5000)
+    const intervalId = setInterval(nextSlide, 4000)
 
     return () => {
       clearInterval(intervalId)

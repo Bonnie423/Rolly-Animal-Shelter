@@ -9,7 +9,7 @@ const GoogleMap = () => {
   return (
     <APIProvider apiKey={API_KEY}>
       <Map
-        zoom={10}
+        zoom={20}
         center={{ lat: -43.59657287597656, lng: 172.382934570312 }}
       >
         <Marker

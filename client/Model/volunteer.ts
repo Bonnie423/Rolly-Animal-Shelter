@@ -13,7 +13,7 @@ export interface VolunteerData {
   message: string
 }
 
-export interface volunteerFormType{
+export interface FormType{
   name: string
   email: string
   phone_number: string
