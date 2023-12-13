@@ -4,7 +4,7 @@ import DisplaySlogan from './DisplaySlogan'
 
 const images = [
   // '/images/mainSlides/cat4.jpg',
-  '/images/mainSlides/dog2.jpg',
+  '/images/mainSlides/cat.jpg',
   '/images/mainSlides/dog.jpg',
 ]
 

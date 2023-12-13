@@ -6,6 +6,7 @@ import VolunteerPage from './components/VolunteerPage'
 import Contact from './components/Contact'
 import SinglePetInfo from './components/SinglePetInfo'
 import PetCategory from './components/PetCategory'
+import SignUp from './components/SignUp'
 
 export default createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -15,5 +16,6 @@ export default createRoutesFromElements(
     <Route path="/pets/:category" element={<PetCategory />} />
     <Route path="/volunteer" element={<VolunteerPage />} />
     <Route path="/contact" element={<Contact />} />
+    <Route path="/sign-up" element={<SignUp />} />
   </Route>
 )

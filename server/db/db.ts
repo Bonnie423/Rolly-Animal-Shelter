@@ -10,6 +10,7 @@ import {
   contactFormType,
 } from '../../client/Model/contactData.js'
 import { petDataType, petFormData } from '../../client/Model/petData.js'
+import { User, UserForm, UserSnakeCase } from '../../client/Model/userType.js'
 
 const db = knex(knexfile.development)
 
@@ -82,3 +83,34 @@ export async function getPetByCategory(
 
   return pets
 }
+
+
+
+
+export async function addUser(newUser: UserSnakeCase): Promise<any[]> {
+  const result = await db('users')
+    .insert(newUser)
+    .returning([
+      'id',
+      'auth0_id as auth0Id',
+      'username',
+      'full_name as fullName',
+      'location',
+      'image',
+    ])
+  console.log('line 15', result)
+  return result
+}
+
+export async function getAllProfiles(): Promise<User[]> {
+  const users = await db('users').select([
+    'id',
+    'auth0_id as auth0Id',
+    'username',
+    'full_name as fullName',
+    'location',
+    'image',
+  ])
+  return users
+}
+

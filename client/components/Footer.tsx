@@ -15,6 +15,8 @@ const Footer = () => {
         Back to top
       </button>
       <p className="copyright">Copyright &copy; ✧2023 Rolly Animal Shelter</p>
+      <br></br>
+      <p style={{fontSize:'9PX', textAlign: 'right', paddingRight: '10px'}}>All the images used for this website are from https://pixabay.com</p>
     </footer>
   )
 }

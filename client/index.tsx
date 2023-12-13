@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import React from 'react'
 import GoogleMap from './components/GoogleMap.tsx'
-
+import { Auth0Provider } from '@auth0/auth0-react'
 import routes from './routes.tsx'
 
 const router = createBrowserRouter(routes)
@@ -14,10 +14,19 @@ const root = createRoot(document.getElementById('app') as HTMLElement)
 const queryClient = new QueryClient()
 
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-    <ReactQueryDevtools />
-  </QueryClientProvider>
+  <Auth0Provider
+    domain="dev-xri5nhxcy03cgakm.au.auth0.com"
+    clientId="sjjdTzVriDqmkDx0e0tpIljuBTsxKeC4"
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+      audience:"https://rolley-animal-shelter/api"
+    }}
+  >
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  </Auth0Provider>
 )
 
 export function renderToDom(container: HTMLElement) {

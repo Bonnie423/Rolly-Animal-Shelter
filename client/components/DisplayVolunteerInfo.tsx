@@ -2,13 +2,18 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { addVolunteers } from '../apiClient/addVolunteerAPI'
 import { VolunteerDataType, VolunteerData } from '../Model/volunteer'
+import { Link } from 'react-router-dom'
 
 interface Props {
   name: string
-
 }
 
-const DisplayVolunteerInfo = ({ name , phoneNumber, email, message}: VolunteerData) => {
+const DisplayVolunteerInfo = ({
+  name,
+  phoneNumber,
+  email,
+  message,
+}: VolunteerData) => {
   return (
     <div>
       <div className="contact-main volunteer-main-content">
@@ -16,6 +21,7 @@ const DisplayVolunteerInfo = ({ name , phoneNumber, email, message}: VolunteerDa
           <h2>
             <span className="red-text vlunteer-heading">✧ ✦Volunteer</span>
           </h2>
+
           <div className="volunteer-main">
             <p className="volunteer-intro">
               I'm a paragraph. Click here to add your own text and edit me. It’s
@@ -60,8 +66,10 @@ const DisplayVolunteerInfo = ({ name , phoneNumber, email, message}: VolunteerDa
                 <p>Email: {email}</p>
                 <p>Message: {message}</p>
                 <br></br>
-                <p>Thank you so much for your kind offer.  We will get in touch with you soon!</p>
-                
+                <p>
+                  Thank you so much for your kind offer. We will get in touch
+                  with you soon!
+                </p>
               </div>
             </div>
           </div>

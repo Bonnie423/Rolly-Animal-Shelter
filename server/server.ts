@@ -6,6 +6,7 @@ import adoptions from './routes/adoptions'
 import volunteers from './routes/volunteers'
 import contact from './routes/contact'
 import pets from './routes/pets'
+import users from './routes/users.ts'
 
 
 const server = express()
@@ -18,6 +19,7 @@ server.use('/api/v1/adoptions', adoptions)
 server.use('/api/v1/volunteers', volunteers)
 server.use('/api/v1/contact', contact)
 server.use('/api/v1/pets', pets)
+server.use('/api/v1/users', users)
 
 
 if (process.env.NODE_ENV === 'production') {

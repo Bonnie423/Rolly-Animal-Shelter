@@ -3,6 +3,8 @@
   margin: 0px;
 }
 
+
+
 body {
   font-family: 'Arial', sans-serif;
   font-size: clamp(14px, 16px, 24px);
@@ -38,10 +40,17 @@ h2 {
   padding-right: 1vw;
   padding-top: 0;
 }
+
+.red-bg{
+  background-color: rgb(225, 83, 60);
+}
 .header-text {
   color: rgb(225, 83, 60);
   font-weight: bold;
   /* font-size: 1vw; */
+}
+.user-icon{
+  color: rgb(225, 83, 60);
 }
 .nav-box {
   display: flex;
@@ -61,9 +70,11 @@ h2 {
 }
 
 .image-gallery {
-  margin: 0 auto;
+  /* margin: 0 auto; */
   overflow: hidden;
   max-width: 100%;
+  width: 80%;
+  text-align: right;
 }
 
 .image-gallery-container {
@@ -79,7 +90,7 @@ h2 {
 }
 
 .slides-img {
-  width: 100%;
+  width: 80%;
 
   height: 100%;
   object-fit: cover;
