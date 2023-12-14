@@ -1,18 +1,13 @@
 import knexfile from './knexfile.js'
 import knex from 'knex'
-import {
-  VolunteerDataType,
-  VolunteerData,
-  FormType,
-} from '../../client/Model/volunteer.js'
-import {
-  contactDataType,
-  contactFormType,
-} from '../../client/Model/contactData.js'
-import { petDataType, petFormData } from '../../client/Model/petData.js'
-import { User, UserForm, UserSnakeCase } from '../../client/Model/userType.js'
+import { VolunteerData, FormType } from '../../client/Model/volunteer.js'
+import { contactFormType } from '../../client/Model/contactData.js'
+import { petFormData } from '../../client/Model/petData.js'
+import { User, UserSnakeCase } from '../../client/Model/userType.js'
+import connection from './connection.ts'
 
-const db = knex(knexfile.development)
+
+const db = connection
 
 export async function getVolunteerList() {
   await db('volunteers').select('*')
@@ -84,9 +79,6 @@ export async function getPetByCategory(
   return pets
 }
 
-
-
-
 export async function addUser(newUser: UserSnakeCase): Promise<any[]> {
   const result = await db('users')
     .insert(newUser)
@@ -113,4 +105,3 @@ export async function getAllProfiles(): Promise<User[]> {
   ])
   return users
 }
-
