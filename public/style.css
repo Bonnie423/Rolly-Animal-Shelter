@@ -3,8 +3,6 @@
   margin: 0px;
 }
 
-
-
 body {
   font-family: 'Arial', sans-serif;
   font-size: clamp(14px, 16px, 24px);
@@ -35,25 +33,26 @@ h2 {
   line-height: 1;
 }
 .logo {
-  width: 3vw;
+  width: 100px;
 
   padding-right: 1vw;
   padding-top: 0;
 }
 
-.red-bg{
+.red-bg {
   background-color: rgb(225, 83, 60);
 }
 .header-text {
   color: rgb(225, 83, 60);
   font-weight: bold;
-  /* font-size: 1vw; */
 }
-.user-icon{
+.user-icon {
   color: rgb(225, 83, 60);
 }
-.nav-box {
-  display: flex;
+.login{
+  color: rgb(225, 83, 60);
+  border: none;
+  background-color: rgba(232, 229, 220, 255);
 }
 .nav-button {
   padding: 0 2vw;
@@ -340,7 +339,7 @@ input {
 }
 .pet-filter-form {
   padding-top: 20px;
-  text-align:center;
+  text-align: center;
 }
 .pet-select {
   font-size: 14px;
@@ -466,9 +465,7 @@ footer {
   .slides-img {
     width: 75%;
   }
-  .logo {
-    width: 10vw;
-  }
+
   .second-main {
     grid-template-columns: 1fr;
   }

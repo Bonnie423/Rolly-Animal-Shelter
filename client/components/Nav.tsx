@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,7 +26,7 @@ const Nav = () => {
           <h2>Animal Shelter</h2>
         </div>
       </div>
-      <div className="nav-box">
+      <div className="navbar navbar-expand-lg ">
         <Link to="/">
           <button className="nav-button">Home</button>
         </Link>
@@ -37,18 +37,19 @@ const Nav = () => {
           <button className="nav-button">Volunteer</button>
         </Link>
         <Link to="/contact">
-          <button className="nav-button">Contact Us</button>
+          <button className="nav-button">Contact </button>
         </Link>
-      </div>
-      <div>
-        <div className='user-icon'>
-          <FaUser />
-        </div>
-        <button onClick={() => loginWithRedirect()}>
-          {isAuthenticated ? user?.nickname : 'Log in'}
-        </button>
-      </div>
-      {isAuthenticated ? (
+
+        {/* <div className="inline"> */}
+          <div className="user-icon">
+            <FaUser />
+          </div>
+          <button onClick={() => {isAuthenticated ? logout({ logoutParams: { returnTo: window.location.origin } }):loginWithRedirect() }} className="login">
+            {isAuthenticated ? user?.nickname : 'Log in'}
+          </button>
+        {/* </div> */}
+
+        {/* {isAuthenticated ? (
         <button
           onClick={() =>
             logout({ logoutParams: { returnTo: window.location.origin } })
@@ -60,7 +61,8 @@ const Nav = () => {
         <Link to="/sign-up">
           <button>Sign up</button>
         </Link>
-      )}
+      )} */}
+      </div>
     </div>
   )
 }

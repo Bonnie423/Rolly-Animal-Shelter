@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { getPetById } from '../apiClient/petListAPI'
-import CatofTheweek from './CatofTheweek'
+
 import { Link } from 'react-router-dom'
 
 const DogofTheWeek = () => {
