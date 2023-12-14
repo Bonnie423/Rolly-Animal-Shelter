@@ -1,11 +1,11 @@
 import { Route, createRoutesFromElements } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './components/Home'
-import Adoptions from './components/Adoptions'
+import Adoptions from './components/adoptionPage/Adoptions'
 import VolunteerPage from './components/VolunteerPage'
-import Contact from './components/Contact'
-import SinglePetInfo from './components/SinglePetInfo'
-import PetCategory from './components/PetCategory'
+import Contact from './components/contactPage/Contact'
+import SinglePetInfo from './components/adoptionPage/SinglePetInfo'
+import PetCategory from './components/adoptionPage/PetCategory'
 import SignUp from './components/SignUp'
 
 export default createRoutesFromElements(

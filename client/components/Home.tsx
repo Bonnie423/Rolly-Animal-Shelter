@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import Gallery from './Gallery'
-import Volunteer from './Volunteer.tsx'
+import Gallery from './homepage/Gallery.tsx'
+import Volunteer from './homepage/Volunteer.tsx'
 
-import DogGallery from './DogGallery.tsx'
-import CatGallery from './CatGallery.tsx'
-import CatofTheweek from './CatofTheweek.tsx'
-import DogofTheWeek from './DogofTheWeek.tsx'
+import DogGallery from './homepage/DogGallery.tsx'
+import CatGallery from './homepage/CatGallery.tsx'
+import CatofTheweek from './homepage/CatofTheweek.tsx'
+import DogofTheWeek from './homepage/DogofTheWeek.tsx'
 
 const Home = () => {
   return (

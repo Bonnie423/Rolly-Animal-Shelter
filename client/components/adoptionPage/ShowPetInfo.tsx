@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { petDataType, petFormData } from '../Model/petData'
+import { petDataType, petFormData } from '../../Model/petData'
 import { Link, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { getPetById } from '../apiClient/petListAPI'
+import { getPetById } from '../../apiClient/petListAPI'
 
 const ShowPetInfo = ({
   name,

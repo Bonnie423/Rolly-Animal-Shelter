@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { getPetByCategory } from '../apiClient/petListAPI'
+import { getPetByCategory } from '../../apiClient/petListAPI'
 import ShowPetInfo from './ShowPetInfo'
 
 const PetCategory = () => {
@@ -14,7 +14,6 @@ const PetCategory = () => {
     queryKey: ['pets', category],
     queryFn: () => getPetByCategory(category as string),
   })
-  
 
   if (isLoading) {
     return <p>Loading pet info...</p>

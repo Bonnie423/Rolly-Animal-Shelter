@@ -1,5 +1,5 @@
 import GoogleMap from './GoogleMap'
-import { contactDataType } from '../Model/contactData'
+import { contactDataType } from '../../Model/contactData'
 import React, {
   ChangeEvent,
   ChangeEventHandler,
@@ -7,8 +7,8 @@ import React, {
   useState,
 } from 'react'
 import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
-import { addContact } from '../apiClient/addContactAPI'
-import DisplayContactSubmit from './DisplayContactSubmit'
+import { addContact } from '../../apiClient/addContactAPI'
+import DisplayContactSubmit from '../DisplayContactSubmit'
 
 const initialForm = {
   name: '',
@@ -29,9 +29,7 @@ const Contact = () => {
     },
   })
   function handleChange(
-    event:
-      | ChangeEvent<HTMLInputElement>
-      | ChangeEvent<HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) {
     const { name, value } = event.target
     const newForm = { ...form, [name]: value }
@@ -48,7 +46,12 @@ const Contact = () => {
   return (
     <div>
       {submitted ? (
-        <DisplayContactSubmit name={form.name} phoneNumber={form.phoneNumber} email={form.email} message={form.message}  />
+        <DisplayContactSubmit
+          name={form.name}
+          phoneNumber={form.phoneNumber}
+          email={form.email}
+          message={form.message}
+        />
       ) : (
         <div className="contact-main">
           <div className="contact-main-box">

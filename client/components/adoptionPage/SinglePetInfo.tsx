@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import  { useState } from 'react'
-import { getPetById } from '../apiClient/petListAPI'
+import { useState } from 'react'
+import { getPetById } from '../../apiClient/petListAPI'
 import { useParams } from 'react-router'
-import { petFormData } from '../Model/petData'
+import { petFormData } from '../../Model/petData'
 import AdoptionForm from './AdoptionForm'
 
 const SinglePetInfo = () => {
@@ -36,21 +36,22 @@ const SinglePetInfo = () => {
         </div>
         <div className="pet-details">
           <p>
-            Hi, My name is <span className="pet-intro-text">{pet?.name}</span>, I am{' '}
-            <span className="pet-intro-text">{pet?.age}</span> years old now, 
-            a member of the <span className="pet-intro-text">{pet?.breed}</span>{' '} family
-            and I am <span className="pet-intro-text">{pet?.gender}.</span>
+            Hi, My name is <span className="pet-intro-text">{pet?.name}</span>,
+            I am <span className="pet-intro-text">{pet?.age}</span> years old
+            now, a member of the{' '}
+            <span className="pet-intro-text">{pet?.breed}</span> family and I am{' '}
+            <span className="pet-intro-text">{pet?.gender}.</span>
           </p>
           <br></br>
           <p>
-            Could you <span className="pet-intro-text">please</span> take me home and let me be part of your family?
-            
+            Could you <span className="pet-intro-text">please</span> take me
+            home and let me be part of your family?
           </p>
           <br></br>
           <br></br>
           <button className="submit-btn" onClick={() => setShowForm(!showForm)}>
             {/* Apply to adopt */}
-            {pet?.gender === 'Female'? 'Take her home' : 'Take him home'}
+            {pet?.gender === 'Female' ? 'Take her home' : 'Take him home'}
           </button>
           {showForm && <AdoptionForm />}
         </div>

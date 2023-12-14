@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
-import { getAllPets } from '../apiClient/petListAPI'
+import { getAllPets } from '../../apiClient/petListAPI'
 import ShowPetInfo from './ShowPetInfo'
 
-import { petFormData } from '../Model/petData'
+import { petFormData } from '../../Model/petData'
 
 const Adoptions = () => {
   const [selectCategory, setSelectCategory] = useState('')

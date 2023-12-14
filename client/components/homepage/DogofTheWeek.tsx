@@ -1,17 +1,18 @@
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
-import { getPetById } from '../apiClient/petListAPI'
+
+import { getPetById } from '../../apiClient/petListAPI'
+
 import { Link } from 'react-router-dom'
 
-const CatofTheweek = () => {
-  const catId = 42
+const DogofTheWeek = () => {
+  const dogId = 35
   const {
     data: pet,
     isError,
     isLoading,
   } = useQuery({
-    queryKey: ['pets', catId],
-    queryFn: () => getPetById(Number(catId)),
+    queryKey: ['pets', dogId],
+    queryFn: () => getPetById(Number(dogId)),
   })
 
   if (isLoading) {
@@ -23,19 +24,15 @@ const CatofTheweek = () => {
   }
 
   return (
-    <div className="week-pet-container cat-of-week">
+    <div className="week-pet-container">
       <div className="week-pet-box">
-      <Link to={`/adoptions/${catId}`}>
-        <img
-          src={pet?.image}
-          alt={pet?.name}
-          className="week-pet-img"
-        ></img>
-      </Link>
+        <Link to={`/adoptions/${dogId}`}>
+          <img src={pet?.image} alt={pet?.name} className="week-pet-img"></img>
+        </Link>
         <div className="week-pet-p">
-          <h4> ✧ Cat of the week</h4>
+          <h4> ✧ Dog of the week</h4>
           <p>
-             Name: 
+            Name:
             {pet?.name}
           </p>
           <p>Age: {pet?.age}</p>
@@ -43,8 +40,11 @@ const CatofTheweek = () => {
           <p>Breed: {pet?.breed}</p>
         </div>
       </div>
-      </div>
-     ) 
+      {/* <div className="week-pet-box cat-week">
+        <CatofTheweek />
+      </div> */}
+    </div>
+  )
 }
 
-export default CatofTheweek
+export default DogofTheWeek
