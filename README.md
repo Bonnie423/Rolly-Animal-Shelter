@@ -20,7 +20,8 @@ Express.js
 Knex.js
 SQLite
 HTML5, CSS3
-Bootstrap , Tailwind
+Bootstrap , Tailwind,
+react-google-map
 
 
 
