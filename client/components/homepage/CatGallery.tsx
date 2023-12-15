@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-
-// type PropType = {
-//   slides: number[]
-//   options?: EmblaOptionsType
-// }
 
 const imagesData = [
   '/images/cats/cat7.jpg',
@@ -61,8 +56,8 @@ const CatGallery = () => {
           )
         })}
       </div>
-      <Link  to={`/pets/${category}`} style={{textDecoration: 'none'}}>
-      <h2  className='adoptable-pet'>✧ Adoptable cats</h2>
+      <Link to={`/pets/${category}`} style={{ textDecoration: 'none' }}>
+        <h2 className="adoptable-pet">✧ Adoptable cats</h2>
       </Link>
     </div>
   )

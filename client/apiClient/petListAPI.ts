@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { petDataType, petFormData } from '../../client/Model/petData.js'
+import {  petFormData } from '../../client/Model/petData.js'
 
 export async function getAllPets() {
   const response = await request.get('/api/v1/pets')

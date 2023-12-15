@@ -1,5 +1,5 @@
 import request from 'superagent'
-import { contactDataType, contactData } from '../../client/Model/contactData.js'
+import { contactDataType } from '../../client/Model/contactData.js'
 
 export async function getVolunteerList() {
   const response = await request.get('/api/v1/volunteers')

@@ -1,7 +1,7 @@
 import express from 'express'
-import request from 'superagent'
+
 import * as db from '../db/db.js'
-import { petDataType } from '../../client/Model/petData.js'
+
 
 const router = express.Router()
 

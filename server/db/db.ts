@@ -1,11 +1,8 @@
-import knexfile from './knexfile.js'
-import knex from 'knex'
 import { VolunteerData, FormType } from '../../client/Model/volunteer.js'
 import { contactFormType } from '../../client/Model/contactData.js'
 import { petFormData } from '../../client/Model/petData.js'
 import { User, UserSnakeCase } from '../../client/Model/userType.js'
 import connection from './connection.ts'
-
 
 const db = connection
 
@@ -50,6 +47,11 @@ export async function getAllPets(): Promise<petFormData[]> {
 
 export async function getPetById(petId: number): Promise<petFormData[]> {
   const pet = await db('pets').where('id', petId).select('*').first()
+  return pet
+}
+
+export async function getPetByName(petName: string): Promise<petFormData[]> {
+  const pet = await db('pets').where('name', petName).select('*').first()
   return pet
 }
 
