@@ -1,14 +1,10 @@
 import GoogleMap from '../GoogleMap'
 import { contactDataType } from '../../Model/contactData'
-import {
-  ChangeEvent,
- 
-  FormEvent,
-  useState,
-} from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addContact } from '../../apiClient/addContactAPI'
-import DisplayContactSubmit from '../DisplayContactSubmit'
+import DisplayContactSubmit from './DisplayContactSubmit'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const initialForm = {
   name: '',
@@ -21,6 +17,7 @@ const Contact = () => {
   const [form, setForm] = useState<contactDataType>(initialForm)
   const [submitted, setSubmitted] = useState(false)
   const queryClient = useQueryClient()
+  const { isAuthenticated } = useAuth0()
 
   const addVolunteerMutation = useMutation({
     mutationFn: addContact,
@@ -71,7 +68,7 @@ const Contact = () => {
                 <p>Phone: 021-123-456</p>
               </div>
               <div>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(event)=>{isAuthenticated? handleSubmit(event) : alert('Please log in first')}}>
                   <div className="input">
                     <p>
                       <input

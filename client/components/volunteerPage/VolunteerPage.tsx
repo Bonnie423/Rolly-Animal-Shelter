@@ -1,8 +1,9 @@
 import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from 'react'
-import { VolunteerDataType, VolunteerData } from '../Model/volunteer'
+import { VolunteerDataType, VolunteerData } from '../../Model/volunteer'
 import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
-import { addVolunteers } from '../apiClient/addVolunteerAPI'
+import { addVolunteers } from '../../apiClient/addVolunteerAPI'
 import DisplayVolunteerInfo from './DisplayVolunteerInfo'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const initialForm = {
   name: '',
@@ -15,10 +16,11 @@ const VolunteerPage = () => {
   const [form, setForm] = useState<VolunteerDataType>(initialForm)
   const [submitted, setSubmitted] = useState(false)
   const queryClient = useQueryClient()
+  const { isAuthenticated } = useAuth0()
 
   const addVolunteerMutation = useMutation({
     mutationFn: addVolunteers,
-    onSuccess: (newVolunteer) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['volunteers'] })
     },
   })
@@ -30,7 +32,7 @@ const VolunteerPage = () => {
     setForm(newForm)
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement> ) {
     event.preventDefault()
     addVolunteerMutation.mutate(form)
     setSubmitted(true)
@@ -58,9 +60,9 @@ const VolunteerPage = () => {
                 well-being and happiness of our furry friends. Our dedicated
                 volunteers engage in a variety of essential activities,
                 including hands-on care, socialization, event organization, and
-                administrative support. Whether it's spending quality time with
-                our animals, assisting in the daily operations, or helping with
-                special events, each volunteer contributes uniquely to the
+                administrative support. Whether it&apos;s spending quality time
+                with our animals, assisting in the daily operations, or helping
+                with special events, each volunteer contributes uniquely to the
                 positive atmosphere we strive to maintain. We believe that every
                 act of kindness, no matter how big or small, makes a lasting
                 impact. If you share our passion for creating a loving and
@@ -87,7 +89,7 @@ const VolunteerPage = () => {
                 </p>
               </div>
               <div className="sign-up-form">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(event)=>{isAuthenticated? handleSubmit(event) : alert('Please log in first')}}>
                   <input
                     type="text"
                     name="name"

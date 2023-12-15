@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 
 const Volunteer = () => {
@@ -25,7 +25,7 @@ const Volunteer = () => {
         <p>
           We deeply appreciate the time and effort our volunteers invest in
           creating a nurturing environment for our animals, fostering a
-          compassionate and caring community for all. If you're passionate about
+          compassionate and caring community for all. If you&apos;re passionate about
           making a difference in the lives of animals, we invite you to join our
           volunteer team and be a vital part of our mission.
         </p>

@@ -4,12 +4,12 @@ import { getPetById } from '../../apiClient/petListAPI'
 import { useParams } from 'react-router'
 import { petFormData } from '../../Model/petData'
 import AdoptionForm from './AdoptionForm'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const SinglePetInfo = () => {
   const [showForm, setShowForm] = useState(false)
   const { petId } = useParams()
-
-  // console.log('pet Id: ' + petId)
+  const { isAuthenticated } = useAuth0()
 
   const {
     data: pet,
@@ -49,8 +49,14 @@ const SinglePetInfo = () => {
           </p>
           <br></br>
           <br></br>
-          <button className="submit-btn" onClick={() => setShowForm(!showForm)}>
-            {/* Apply to adopt */}
+          <button
+            className="submit-btn"
+            onClick={() => {
+              isAuthenticated
+                ? setShowForm(!showForm)
+                : alert('Please log in first')
+            }}
+          >
             {pet?.gender === 'Female' ? 'Take her home' : 'Take him home'}
           </button>
           {showForm && <AdoptionForm />}
