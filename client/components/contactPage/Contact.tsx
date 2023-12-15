@@ -1,12 +1,12 @@
-import GoogleMap from './GoogleMap'
+import GoogleMap from '../GoogleMap'
 import { contactDataType } from '../../Model/contactData'
-import React, {
+import {
   ChangeEvent,
-  ChangeEventHandler,
+ 
   FormEvent,
   useState,
 } from 'react'
-import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addContact } from '../../apiClient/addContactAPI'
 import DisplayContactSubmit from '../DisplayContactSubmit'
 
@@ -24,7 +24,7 @@ const Contact = () => {
 
   const addVolunteerMutation = useMutation({
     mutationFn: addContact,
-    onSuccess: (newVolunteer) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['contacts'] })
     },
   })

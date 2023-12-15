@@ -1,5 +1,5 @@
 import React from 'react'
-import GoogleMap from './contactPage/GoogleMap'
+import GoogleMap from './GoogleMap'
 import { contactData, contactDataType } from '../Model/contactData'
 
 const DisplayContactSubmit = ({

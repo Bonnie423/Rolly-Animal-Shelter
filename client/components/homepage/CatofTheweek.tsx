@@ -4,7 +4,7 @@ import { getPetById } from '../../apiClient/petListAPI'
 import { Link } from 'react-router-dom'
 
 const CatofTheweek = () => {
-  const catId = 42
+  const catId = 10
   const {
     data: pet,
     isError,

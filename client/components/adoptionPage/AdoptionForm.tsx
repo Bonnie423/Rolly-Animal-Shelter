@@ -1,8 +1,7 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react'
+import  { ChangeEvent, FormEvent, useState } from 'react'
 import { contactDataType } from '../../Model/contactData'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addAdoption } from '../../apiClient/adoptionsAPI'
-import DisplayAdoptionSubmission from './DisplayAdoptionSubmission'
 
 const initialForm = {
   name: '',

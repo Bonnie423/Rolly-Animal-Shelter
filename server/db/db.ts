@@ -79,7 +79,7 @@ export async function getPetByCategory(
   return pets
 }
 
-export async function addUser(newUser: UserSnakeCase): Promise<any[]> {
+export async function addUser(newUser: UserSnakeCase) {
   const result = await db('users')
     .insert(newUser)
     .returning([

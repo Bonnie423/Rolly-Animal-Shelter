@@ -1,4 +1,4 @@
-import  { ChangeEvent, ChangeEventHandler, FormEvent, useState } from 'react'
+import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from 'react'
 import { VolunteerDataType, VolunteerData } from '../Model/volunteer'
 import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
 import { addVolunteers } from '../apiClient/addVolunteerAPI'
@@ -22,7 +22,9 @@ const VolunteerPage = () => {
       queryClient.invalidateQueries({ queryKey: ['volunteers'] })
     },
   })
-  function handleChange(event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) {
+  function handleChange(
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) {
     const { name, value } = event.target
     const newForm = { ...form, [name]: value }
     setForm(newForm)
@@ -38,7 +40,12 @@ const VolunteerPage = () => {
   return (
     <div>
       {submitted ? (
-        <DisplayVolunteerInfo name={form.name} phoneNumber = {form.phoneNumber} email={form.email} message={form.message} />
+        <DisplayVolunteerInfo
+          name={form.name}
+          phoneNumber={form.phoneNumber}
+          email={form.email}
+          message={form.message}
+        />
       ) : (
         <div className="contact-main volunteer-main-content">
           <div className="contact-main-box">
@@ -47,18 +54,18 @@ const VolunteerPage = () => {
             </h2>
             <div className="volunteer-main">
               <p className="volunteer-intro">
-                I'm a paragraph. Click here to add your own text and edit me.
-                It’s easy. Just click “Edit Text” or double click me and you can
-                start adding your own content and make changes to the font. Feel
-                free to drag and drop me anywhere you like on your page. I’m a
-                great place for you to tell a story and let your users know a
-                little more about you. ​ This is a great space to write long
-                text about your company and your services. You can use this
-                space to go into a little more detail about your company. Talk
-                about your team and what services you provide. Tell your
-                visitors the story of how you came up with the idea for your
-                business and what makes you different from your competitors.
-                Make your company stand out and show your visitors who you are.
+                At our animal shelter, volunteers play an integral role in the
+                well-being and happiness of our furry friends. Our dedicated
+                volunteers engage in a variety of essential activities,
+                including hands-on care, socialization, event organization, and
+                administrative support. Whether it's spending quality time with
+                our animals, assisting in the daily operations, or helping with
+                special events, each volunteer contributes uniquely to the
+                positive atmosphere we strive to maintain. We believe that every
+                act of kindness, no matter how big or small, makes a lasting
+                impact. If you share our passion for creating a loving and
+                supportive environment for animals in need, we warmly invite you
+                to join our volunteer community.
               </p>
               <img
                 src="/images/dogs/dog12.jpg"
@@ -73,10 +80,10 @@ const VolunteerPage = () => {
                   ​​Help make a difference and sign up to volunteer today!
                 </h3>
                 <p>
-                  I'm a paragraph. Click here to add your own text and edit me.
-                  It’s easy. Just click “Edit Text” or double click me and you
-                  can start adding your own content and make changes to the
-                  font.
+                  Your time and commitment can make a significant difference in
+                  the lives of our shelter animals. Sign up today to be a part
+                  of our mission and contribute to the well-being of our beloved
+                  companions.
                 </p>
               </div>
               <div className="sign-up-form">

@@ -49,7 +49,7 @@ h2 {
 .user-icon {
   color: rgb(225, 83, 60);
 }
-.login{
+.login {
   color: rgb(225, 83, 60);
   border: none;
   background-color: rgba(232, 229, 220, 255);
@@ -183,6 +183,7 @@ h4 {
   background-color: rgba(232, 229, 220, 255);
 }
 
+/* Pet gallery */
 .pet-gallery {
   position: relative;
   margin: 2rem auto;
@@ -297,8 +298,8 @@ input {
   padding-bottom: 10px;
 }
 .volunteer-main {
-  display: flex;
-
+  display: grid;
+grid-template-columns: 1fr 1fr;
   border-bottom: dotted rgb(225, 83, 60);
   border-top: dotted rgb(225, 83, 60);
   padding: 5vh 0;
@@ -308,15 +309,16 @@ input {
 }
 
 .volunteer-img {
-  width: 35%;
+  width: 90%;
   border: solid 10px white;
 }
 .sign-up-box {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding: 5vh 0;
 }
 .sign-up-p {
-  width: 40%;
+  width: 90%;
   padding-right: 3vw;
 }
 .v-input {
@@ -486,5 +488,8 @@ footer {
   }
   .dog-gallery {
     margin: 0 auto;
+  }
+  .volunteer-main, .sign-up-box, .contact-content{
+    grid-template-columns: 1fr;
   }
 }

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { getAllPets } from '../../apiClient/petListAPI'
 import ShowPetInfo from './ShowPetInfo'
 
-import { petFormData } from '../../Model/petData'
+
 
 const Adoptions = () => {
   const [selectCategory, setSelectCategory] = useState('')

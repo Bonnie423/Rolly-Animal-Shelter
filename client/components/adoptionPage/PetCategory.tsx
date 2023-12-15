@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+
 import { useParams } from 'react-router-dom'
 import { getPetByCategory } from '../../apiClient/petListAPI'
 import ShowPetInfo from './ShowPetInfo'
