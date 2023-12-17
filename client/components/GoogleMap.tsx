@@ -1,6 +1,6 @@
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps'
 
-const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string
+const API_KEY = "AIzaSyCCp3PZbQL7z91AFeqhduIvlUmSsG9gLis"
 
 const image = '/images/contact/cat_marker.webp' as string
 
